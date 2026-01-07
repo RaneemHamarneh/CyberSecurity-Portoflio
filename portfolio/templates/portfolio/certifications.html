@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Certifications · Portfolio{% endblock %}
+
+{% block content %}
+  <h1>Certifications</h1>
+  <p class="muted">Verifiable credentials. Badges are embedded from Credly.</p>
+
+  <section class="grid" style="display:grid; gap:16px; margin-top:16px;">
+    {% for c in certifications %}
+      <article class="panel">
+        <div style="display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;">
+          <div style="min-width:260px;">
+            <h2 style="margin:0;">{{ c.name }}</h2>
+            <div class="muted" style="font-size:14px;">
+              {{ c.issuer }} · Issued {{ c.issued_at }}
+            </div>
+
+            {% if c.credential_url %}
+              <a href="{{ c.credential_url }}" target="_blank" rel="noreferrer" style="display:inline-block; margin-top:8px;">
+                Verify credential
+              </a>
+            {% endif %}
+          </div>
+
+          {% if c.credly_share_badge_id %}
+            <div>
+              <div
+                data-iframe-width="150"
+                data-iframe-height="270"
+                data-share-badge-id="{{ c.credly_share_badge_id }}"
+                data-share-badge-host="{{ c.credly_host|default:'https://www.credly.com' }}">
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <!-- Load Credly script ONCE per page -->
+  <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+{% endblock %}
