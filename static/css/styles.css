@@ -1,0 +1,130 @@
+:root {
+    --bg: #ffffff;
+    --fg: #0a0a0a;
+    --muted: #5c5c5c;
+    --card: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
+    --accent: #1e40af;
+    /* restrained blue */
+}
+
+:root[data-theme="dark"] {
+    --bg: #050505;
+    --fg: #fafafa;
+    --muted: #b2b2b2;
+    --card: #0f0f10;
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #60a5fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand {
+    font-weight: 650;
+    text-decoration: none;
+    color: var(--fg);
+    letter-spacing: -0.02em;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--fg);
+    font-size: 14px;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.hero h1 {
+    font-size: 44px;
+    letter-spacing: -0.03em;
+    margin: 12px 0;
+}
+
+.lead {
+    color: var(--muted);
+    max-width: 720px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid var(--border);
+}
+
+.btn-primary {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: transparent;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--fg);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+}
+
+.panel {
+    margin-top: 28px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+}
