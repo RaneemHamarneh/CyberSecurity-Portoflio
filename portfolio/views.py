@@ -63,3 +63,13 @@ def document_detail(request, slug):
 def certifications(request):
     certs = Certification.objects.order_by("-featured", "-issued_at")
     return render(request, "portfolio/certifications.html", {"certifications": certs})
+
+def skills(request):
+    skill_groups = {
+        "Security": ["SOC fundamentals", "Log analysis", "Detection thinking", "Incident response", "Threat hunting", "MITRE ATT&CK"],
+        "Networking": ["TCP/IP", "DNS", "HTTP/HTTPS", "Subnets/CIDR", "Routing basics", "Wireshark basics"],
+        "Linux": ["Filesystem", "Permissions", "Processes", "Systemd", "Bash fundamentals", "Networking commands"],
+        "Tools": ["Wireshark", "tcpdump", "Splunk (basic)", "Git/GitHub", "Docker (basic)", "Burp Suite (basic)"],
+        "Programming": ["Python (scripting)", "SQL (queries)", "Django (web)", "APIs", "Regex", "Automation mindset"],
+    }
+    return render(request, "portfolio/skills.html", {"skill_groups": skill_groups})

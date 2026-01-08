@@ -1,4 +1,128 @@
+
 {% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Home · Portfolio{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Cybersecurity Portfolio</h1>
+  <p class="lead">Proof-of-work: projects, reports, and certifications structured for recruiters and hiring managers.</p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="/projects/">View Projects</a>
+    <a class="btn btn-secondary" href="/projects/certifications/">Certifications</a>
+  </div>
+
+  <!-- Milestones panel -->
+  <section class="milestones" aria-label="My Cybersecurity Milestones">
+    <div class="milestones__stage">
+      <!-- SVG -->
+      <svg class="milestones__svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g id="traces">
+          <path d="M100 100 H200 V210 H326" class="trace-bg"></path>
+          <path d="M100 100 H200 V210 H326" class="trace-flow"></path>
+
+          <path d="M80 180 H180 V230 H326" class="trace-bg"></path>
+          <path d="M80 180 H180 V230 H326" class="trace-flow"></path>
+
+          <path d="M60 260 H150 V250 H326" class="trace-bg"></path>
+          <path d="M60 260 H150 V250 H326" class="trace-flow"></path>
+
+          <path d="M100 350 H200 V270 H326" class="trace-bg"></path>
+          <path d="M100 350 H200 V270 H326" class="trace-flow"></path>
+
+          <path d="M700 90 H560 V210 H474" class="trace-bg"></path>
+          <path d="M700 90 H560 V210 H474" class="trace-flow"></path>
+
+          <path d="M740 160 H580 V230 H474" class="trace-bg"></path>
+          <path d="M740 160 H580 V230 H474" class="trace-flow"></path>
+
+          <path d="M720 250 H590 V250 H474" class="trace-bg"></path>
+          <path d="M720 250 H590 V250 H474" class="trace-flow"></path>
+
+          <path d="M680 340 H570 V270 H474" class="trace-bg"></path>
+          <path d="M680 340 H570 V270 H474" class="trace-flow"></path>
+        </g>
+
+        <!-- Center chip -->
+        <rect x="330" y="190" width="140" height="100" rx="20" ry="20"
+              fill="#0f0f10" stroke="#2a2a2a" stroke-width="2"></rect>
+
+        <text x="400" y="240" text-anchor="middle" alignment-baseline="middle"
+              class="milestones__chipText">
+          My Cybersecurity Milestones
+        </text>
+
+        <!-- Endpoint dots (optional but helpful visually) -->
+        <circle cx="100" cy="100" r="5" fill="#facc15"></circle>
+        <circle cx="80" cy="180" r="5" fill="#facc15"></circle>
+        <circle cx="60" cy="260" r="5" fill="#facc15"></circle>
+        <circle cx="100" cy="350" r="5" fill="#facc15"></circle>
+
+        <circle cx="700" cy="90" r="5" fill="#facc15"></circle>
+        <circle cx="740" cy="160" r="5" fill="#facc15"></circle>
+        <circle cx="720" cy="250" r="5" fill="#facc15"></circle>
+        <circle cx="680" cy="340" r="5" fill="#facc15"></circle>
+      </svg>
+
+      <!-- Overlay endpoint boxes (positioned at the line ends) -->
+      <a class="milestones__node milestones__node--l1" href="/projects/">
+        <span class="milestones__nodeTitle">Projects</span>
+        <span class="milestones__nodeSub">Case studies, labs, outcomes</span>
+      </a>
+
+      <a class="milestones__node milestones__node--l2" href="/projects/documents/">
+        <span class="milestones__nodeTitle">Documents</span>
+        <span class="milestones__nodeSub">Reports, PDFs, evidence</span>
+      </a>
+
+      <a class="milestones__node milestones__node--l3" href="/projects/certifications/">
+        <span class="milestones__nodeTitle">Certifications</span>
+        <span class="milestones__nodeSub">Badges, verification</span>
+      </a>
+
+      <a class="milestones__node milestones__node--l4" href="/projects/skills/">
+        <span class="milestones__nodeTitle">Skills</span>
+        <span class="milestones__nodeSub">Domains, tooling</span>
+      </a>
+
+      <a class="milestones__node milestones__node--r1" href="/contact/">
+        <span class="milestones__nodeTitle">Contact</span>
+        <span class="milestones__nodeSub">Professional inquiries</span>
+      </a>
+
+      <a class="milestones__node milestones__node--r2" href="/static/files/resume.pdf">
+        <span class="milestones__nodeTitle">Resume</span>
+        <span class="milestones__nodeSub">Download PDF</span>
+      </a>
+
+      <a class="milestones__node milestones__node--r3" href="/blog/">
+        <span class="milestones__nodeTitle">Blog</span>
+        <span class="milestones__nodeSub">Writeups & notes</span>
+      </a>
+
+      <a class="milestones__node milestones__node--r4" href="/projects/community/">
+        <span class="milestones__nodeTitle">Community & Interests</span>
+        <span class="milestones__nodeSub">Talks, volunteering</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="panel">
+    <h2>Projects in 30 seconds</h2>
+    <ul>
+      <li>Structured investigations with evidence and outcomes.</li>
+      <li>Security artifacts mapped to SOC/IR workflows.</li>
+      <li>Clear tooling and method demonstration.</li>
+    </ul>
+  </div>
+</section>
+{% endblock %}
+
+
+
+{% comment %} {% extends 'core/base.html' %}
 {% load static %}
 
 {% block title %}Home · Portfolio{% endblock %}
@@ -22,4 +146,152 @@
     </ul>
   </div>
 </section>
-{% endblock %}
+
+<section class="milestones">
+  <header class="milestones__header">
+    <h2 class="milestones__title">My Cybersecurity Milestones</h2>
+    <p class="milestones__subtitle muted">Quick navigation to my work, credentials, and professional profile.</p>
+  </header>
+
+  <div class="milestones__svgShell" aria-hidden="true">
+    <!-- Decorative SVG (scoped styles in CSS under .milestones) -->
+    <svg class="milestones__svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chipGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2d2d2d"></stop>
+          <stop offset="100%" stop-color="#0f0f0f"></stop>
+        </linearGradient>
+
+        <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#eeeeee"></stop>
+          <stop offset="100%" stop-color="#888888"></stop>
+        </linearGradient>
+
+        <linearGradient id="pinGradient" x1="1" y1="0" x2="0" y2="0">
+          <stop offset="0%" stop-color="#bbbbbb"></stop>
+          <stop offset="50%" stop-color="#888888"></stop>
+          <stop offset="100%" stop-color="#555555"></stop>
+        </linearGradient>
+      </defs>
+
+      <g>
+        <path d="M100 100 H200 V210 H326" class="milestones__trace-bg"></path>
+        <path d="M100 100 H200 V210 H326" class="milestones__trace-flow milestones__blue2"></path>
+
+        <path d="M80 180 H180 V230 H326" class="milestones__trace-bg"></path>
+        <path d="M80 180 H180 V230 H326" class="milestones__trace-flow milestones__blue"></path>
+
+        <path d="M60 260 H150 V250 H326" class="milestones__trace-bg"></path>
+        <path d="M60 260 H150 V250 H326" class="milestones__trace-flow milestones__blue2"></path>
+
+        <path d="M100 350 H200 V270 H326" class="milestones__trace-bg"></path>
+        <path d="M100 350 H200 V270 H326" class="milestones__trace-flow milestones__blue"></path>
+
+        <path d="M700 90 H560 V210 H474" class="milestones__trace-bg"></path>
+        <path d="M700 90 H560 V210 H474" class="milestones__trace-flow milestones__blue"></path>
+
+        <path d="M740 160 H580 V230 H474" class="milestones__trace-bg"></path>
+        <path d="M740 160 H580 V230 H474" class="milestones__trace-flow milestones__blue2"></path>
+
+        <path d="M720 250 H590 V250 H474" class="milestones__trace-bg"></path>
+        <path d="M720 250 H590 V250 H474" class="milestones__trace-flow milestones__blue"></path>
+
+        <path d="M680 340 H570 V270 H474" class="milestones__trace-bg"></path>
+        <path d="M680 340 H570 V270 H474" class="milestones__trace-flow milestones__blue2"></path>
+      </g>
+
+      <rect x="330" y="190" width="140" height="100" rx="20" ry="20"
+            fill="url(#chipGradient)" stroke="#222" stroke-width="3"></rect>
+
+      <g>
+        <rect x="322" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="322" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="322" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="322" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+      </g>
+
+      <g>
+        <rect x="470" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="470" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="470" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+        <rect x="470" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2"></rect>
+      </g>
+
+      <text x="400" y="240" font-family="Arial, sans-serif" font-size="18"
+            fill="url(#textGradient)" text-anchor="middle" alignment-baseline="middle">
+        My Cybersecurity Milestones
+      </text>
+    </svg>
+  </div>
+
+  <div class="milestones__grid" aria-label="Milestones navigation">
+    <a class="milestones__card" href="/projects/">
+      <div class="milestones__cardTitle">Projects</div>
+      <div class="milestones__cardDesc muted">Case studies, labs, and outcomes</div>
+    </a>
+
+    <a class="milestones__card" href="/projects/documents/">
+      <div class="milestones__cardTitle">Documents</div>
+      <div class="milestones__cardDesc muted">Reports, PDFs, evidence artifacts</div>
+    </a>
+
+    <a class="milestones__card" href="/projects/certifications/">
+      <div class="milestones__cardTitle">Certifications</div>
+      <div class="milestones__cardDesc muted">Badges, verifications, issuers</div>
+    </a>
+
+    <a class="milestones__card" href="/projects/skills/">
+      <div class="milestones__cardTitle">Skills</div>
+      <div class="milestones__cardDesc muted">Tooling, domains, strengths</div>
+    </a>
+
+    <a class="milestones__card" href="/contact/">
+      <div class="milestones__cardTitle">Contact</div>
+      <div class="milestones__cardDesc muted">Professional inquiries</div>
+    </a>
+
+    <a class="milestones__card" href="{% static 'resume.pdf' %}">
+      <div class="milestones__cardTitle">Resume</div>
+      <div class="milestones__cardDesc muted">Download PDF</div>
+    </a>
+
+    <a class="milestones__card" href="/blog/">
+      <div class="milestones__cardTitle">Blog</div>
+      <div class="milestones__cardDesc muted">Writeups & learning notes</div>
+    </a>
+
+    <a class="milestones__card" href="/about/">
+      <div class="milestones__cardTitle">Community & Interests</div>
+      <div class="milestones__cardDesc muted">Talks, volunteering, non-work highlights</div>
+    </a>
+  </div>
+</section>
+{% endblock %} {% endcomment %}
+
+
+
+{% comment %} {% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Home · Portfolio{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Cybersecurity Portfolio</h1>
+  <p class="lead">Proof-of-work: projects, reports, and certifications structured for recruiters and hiring managers.</p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="/projects/">View Projects</a>
+    <a class="btn btn-secondary" href="/projects/certifications/">Certifications</a>
+  </div>
+
+  <div class="panel">
+    <h2>Projects in 30 seconds</h2>
+    <ul>
+      <li>Structured investigations with evidence and outcomes.</li>
+      <li>Security artifacts mapped to SOC/IR workflows.</li>
+      <li>Clear tooling and method demonstration.</li>
+    </ul>
+  </div>
+</section>
+{% endblock %} {% endcomment %}

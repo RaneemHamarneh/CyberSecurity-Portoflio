@@ -1,24 +1,58 @@
+{% comment %} {% load static %}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% block title %}Portfolio{% endblock %}</title>
+
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <script defer src="{% static 'js/theme.js' %}"></script>
+  <script defer src="{% static 'js/page-loader.js' %}"></script>
 </head>
 
 <body>
+
+  <!-- Page Loader Overlay (GLOBAL: must be outside block content) -->
+  <div id="pageLoader" class="pageLoader" aria-hidden="true">
+    <div class="main-container" role="status" aria-label="Loading">
+      <svg class="loader" viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background trace -->
+        <path class="trace-bg"
+              d="M20 110 H160 C190 110 190 60 220 60 H340 C370 60 370 160 400 160 H500" />
+        <!-- Animated flow -->
+        <path class="trace-flow blue"
+              d="M20 110 H160 C190 110 190 60 220 60 H340 C370 60 370 160 400 160 H500" />
+
+        <!-- Chip -->
+        <rect x="235" y="85" width="90" height="50" class="chip-body" fill="none" stroke="currentColor" />
+        <text x="280" y="116" text-anchor="middle" class="chip-text" fill="currentColor">LOADING</text>
+
+        <!-- Pins -->
+        <g class="chip-pin">
+          <line x1="235" y1="95" x2="220" y2="95"/>
+          <line x1="235" y1="110" x2="220" y2="110"/>
+          <line x1="235" y1="125" x2="220" y2="125"/>
+          <line x1="325" y1="95" x2="340" y2="95"/>
+          <line x1="325" y1="110" x2="340" y2="110"/>
+          <line x1="325" y1="125" x2="340" y2="125"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">YourName<span class="muted">.security</span></a>
+      <a class="brand" href="/">Raneem_Hamarneh<span class="muted">.security</span></a>
 
       <nav class="nav">
         <a href="/projects/">Projects</a>
         <a href="/projects/documents/">Documents</a>
         <a href="/projects/certifications/">Certifications</a>
+        <a href="/projects/skills/">Skills</a>
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
+
         <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme">
           Theme
         </button>
@@ -32,8 +66,56 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small class="muted">© {% now 'Y' %} YourName. Built for speed, accessibility, and security.</small>
+      <small class="muted">© {% now 'Y' %} Raneem AlHamarneh. Built for speed, accessibility, and security.</small>
+    </div>
+  </footer>
+
+</body>
+</html>
+ {% endcomment %}
+
+{% load static %}
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script defer src="{% static 'js/theme.js' %}"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Raneem_Hamarneh<span class="muted">.security</span></a>
+
+      <nav class="nav">
+        <a href="/projects/">Projects</a>
+        <a href="/projects/documents/">Documents</a>
+        <a href="/projects/certifications/">Certifications</a>
+        <a href="/projects/skills/">Skills</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          Theme
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}
+    
+    {% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small class="muted">© {% now 'Y' %} Raneem AlHamarneh. Built for speed, accessibility, and security.</small>
     </div>
   </footer>
 </body>
-</html>
+</html> 

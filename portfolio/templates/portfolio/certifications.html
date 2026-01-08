@@ -3,33 +3,52 @@
 {% block title %}Certifications · Portfolio{% endblock %}
 
 {% block content %}
-  <h1>Certifications</h1>
-  <p class="muted">Verifiable credentials. Badges are embedded from Credly.</p>
+  <h1 class="certifications__title">Certifications</h1>
+  <p class="muted">Verifiable credentials. Badges may be embedded from credential providers.</p>
 
-  <section class="grid" style="display:grid; gap:16px; margin-top:16px;">
+  <!-- Featured / hardcoded badge (optional) -->
+  <div class="certifications__badgeWrap">
+    <div class="certifications__badgeShell" aria-label="Certification badge">
+      <div
+        class="certifications__badgeEmbed"
+        data-iframe-width="250"
+        data-iframe-height="570"
+        data-share-badge-id="9d2b6a2f-aea0-42bc-bf4c-8462f46f57a1"
+        data-share-badge-host="https://www.credly.com">
+      </div>
+    </div>
+  </div>
+
+  <section class="certifications__grid" aria-label="Certifications list">
     {% for c in certifications %}
       <article class="panel">
-        <div style="display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;">
-          <div style="min-width:260px;">
-            <h2 style="margin:0;">{{ c.name }}</h2>
-            <div class="muted" style="font-size:14px;">
+        <div class="certifications__cardInner">
+          <div class="certifications__meta">
+            <h2 class="certifications__name">{{ c.name }}</h2>
+            <div class="muted certifications__issuer">
               {{ c.issuer }} · Issued {{ c.issued_at }}
             </div>
 
             {% if c.credential_url %}
-              <a href="{{ c.credential_url }}" target="_blank" rel="noreferrer" style="display:inline-block; margin-top:8px;">
+              <a class="certifications__verifyLink"
+                 href="{{ c.credential_url }}"
+                 target="_blank"
+                 rel="noreferrer">
                 Verify credential
               </a>
             {% endif %}
           </div>
 
           {% if c.credly_share_badge_id %}
-            <div>
-              <div
-                data-iframe-width="150"
-                data-iframe-height="270"
-                data-share-badge-id="{{ c.credly_share_badge_id }}"
-                data-share-badge-host="{{ c.credly_host|default:'https://www.credly.com' }}">
+            <div class="certifications__badgeWrap">
+              <div class="certifications__badgeShell" aria-label="Certification badge">
+                <div
+                  class="certifications__badgeEmbed"
+                  data-iframe-width="250"
+                  data-iframe-height="570"
+                  data-share-badge-id="{{ c.credly_share_badge_id }}"
+                  data-share-badge-host="https://www.credly.com">
+                </div>
               </div>
             </div>
           {% endif %}
@@ -38,6 +57,57 @@
     {% endfor %}
   </section>
 
-  <!-- Load Credly script ONCE per page -->
+  <!-- Load embed script ONCE per page -->
   <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 {% endblock %}
+
+
+{% comment %} {% extends 'core/base.html' %}
+
+{% block title %}Certifications · Portfolio{% endblock %}
+
+{% block content %}
+  <h1 class="certifications__title">Certifications</h1>
+  <p class="muted">Verifiable credentials. Badges are embedded from Credly.</p>
+  <div 
+    data-iframe-width="250" 
+    data-iframe-height="570" 
+    data-share-badge-id="9d2b6a2f-aea0-42bc-bf4c-8462f46f57a1" 
+    data-share-badge-host="https://www.credly.com">
+  </div>
+   <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+  <section class="certifications__grid" aria-label="Certifications list">
+    {% for c in certifications %}
+      <article class="panel">
+        <div class="certifications__cardInner">
+          <div class="certifications__meta">
+            <h2 class="certifications__name">{{ c.name }}</h2>
+            <div class="muted" style="font-size:14px;">{{ c.issuer }} · Issued {{ c.issued_at }}</div>
+
+            {% if c.credential_url %}
+              <a class="certifications__verifyLink" href="{{ c.credential_url }}" target="_blank" rel="noreferrer">
+                Verify credential
+              </a>
+            {% endif %}
+          </div>
+
+          {% if c.credly_share_badge_id %}
+            <div class="certifications__badgeWrap">
+              <div class="credlyBadgeShell">
+                <div
+                  data-iframe-width="150"
+                  data-iframe-height="270"
+                  data-share-badge-id="{{ c.credly_share_badge_id }}"
+                  data-share-badge-host="https://www.credly.com">
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+  
+  <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+{% endblock %} {% endcomment %}

@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Skills · Portfolio{% endblock %}
+
+{% block content %}
+  <header class="skills__header">
+    <h1 class="skills__title">Skills</h1>
+    <p class="skills__subtitle muted">
+      A structured overview of the skills I use to deliver security outcomes.
+    </p>
+    <div class="skills__divider" aria-hidden="true"></div>
+  </header>
+
+  <section class="skills__grid" aria-label="Skill categories">
+    {% for category, skills in skill_groups.items %}
+      <article class="skillsCard" aria-label="{{ category }} skills">
+        <div class="skillsCard__top">
+          <h2 class="skillsCard__title">{{ category }}</h2>
+        </div>
+
+        <div class="skillsCard__chips" role="list">
+          {% for s in skills %}
+            <span class="skillChip" role="listitem">{{ s }}</span>
+          {% endfor %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}
